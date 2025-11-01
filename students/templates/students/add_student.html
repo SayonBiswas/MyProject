@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Student</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header>Add Student Details</header>
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+      <label>Admission Number:</label><input type="number" name="admission_number" required>
+      <label>Name:</label><input type="text" name="name" required>
+      <label>Roll Number:</label><input type="number" name="roll_number" required>
+      <label>Class:</label><input type="number" name="class" required>
+      <label>Section:</label><input type="text" name="section" required>
+      <label>Physics:</label><input type="number" name="physics" required>
+      <label>Chemistry:</label><input type="number" name="chemistry" required>
+      <label>Mathematics:</label><input type="number" name="mathematics" required>
+      <label>Computer:</label><input type="number" name="computer" required>
+      <label>English:</label><input type="number" name="english" required>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</body>
+</html>

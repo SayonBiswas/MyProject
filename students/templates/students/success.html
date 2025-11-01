@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header>Student Added!</header>
+  <div class="container">
+    <h3>{{ name }} added successfully!</h3>
+    <a href="{% url 'home' %}"><button>Go Home</button></a>
+    <a href="{% url 'view_all' %}"><button>View All</button></a>
+  </div>
+</body>
+</html>
