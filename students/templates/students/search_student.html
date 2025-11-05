@@ -1,0 +1,42 @@
+{% extends 'students/base.html' %}
+{% block title %}Search Student{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-600 text-center mb-6">Search Student</h2>
+
+<form method="GET" class="text-center mb-6">
+  <input type="text" name="query" value="{{ query }}" placeholder="Enter name or admission number"
+    class="border p-2 rounded w-80">
+  <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Search</button>
+</form>
+
+{% if students %}
+<table class="table-auto w-full bg-white shadow-md rounded">
+  <thead class="bg-blue-100">
+    <tr>
+      <th class="p-2">Adm No</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Section</th>
+      <th>Percentage</th>
+      <th>Grade</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    {% for s in students %}
+    <tr class="border-b">
+      <td>{{ s.admission_number }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.student_class }}</td>
+      <td>{{ s.section }}</td>
+      <td>{{ s.percentage|floatformat:2 }}%</td>
+      <td>{{ s.grade }}</td>
+      <td>{{ s.result }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% elif query %}
+<p class="text-center text-gray-500">No records found.</p>
+{% endif %}
+{% endblock %}

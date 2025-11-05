@@ -1,16 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Success</title>
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-  <header>Student Added!</header>
-  <div class="container">
-    <h3>{{ name }} added successfully!</h3>
-    <a href="{% url 'home' %}"><button>Go Home</button></a>
-    <a href="{% url 'view_all' %}"><button>View All</button></a>
-  </div>
-</body>
-</html>
+{% extends 'students/base.html' %}
+{% block title %}Success{% endblock %}
+{% block content %}
+<div class="bg-green-100 border border-green-400 text-green-800 p-5 rounded text-center max-w-md mx-auto">
+  <h3 class="text-xl font-semibold mb-2">Student Record Saved Successfully!</h3>
+  <a href="{% url 'add_student' %}" class="text-blue-600 hover:underline block mt-2">Add Another</a>
+  <a href="{% url 'view_students' %}" class="text-blue-600 hover:underline block mt-1">View All Records</a>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Report Card System{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-xl font-semibold">Report Card Management</h1>
+      <div>
+        <a href="/" class="hover:text-yellow-300 mx-2">Home</a>
+        <a href="{% url 'add_student' %}" class="hover:text-yellow-300 mx-2">Add</a>
+        <a href="{% url 'view_students' %}" class="hover:text-yellow-300 mx-2">View</a>
+        <a href="{% url 'search_student' %}" class="hover:text-yellow-300 mx-2">Search</a>
+        <a href="{% url 'topper' %}" class="hover:text-yellow-300 mx-2">Topper</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto py-8 px-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="bg-blue-600 text-white py-3 text-center">
+    © 2025 Report Card Management System
+  </footer>
+</body>
+</html>

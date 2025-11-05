@@ -1,27 +1,22 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Add Student</title>
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-  <header>Add Student Details</header>
-  <div class="container">
-    <form method="POST">
-      {% csrf_token %}
-      <label>Admission Number:</label><input type="number" name="admission_number" required>
-      <label>Name:</label><input type="text" name="name" required>
-      <label>Roll Number:</label><input type="number" name="roll_number" required>
-      <label>Class:</label><input type="number" name="class" required>
-      <label>Section:</label><input type="text" name="section" required>
-      <label>Physics:</label><input type="number" name="physics" required>
-      <label>Chemistry:</label><input type="number" name="chemistry" required>
-      <label>Mathematics:</label><input type="number" name="mathematics" required>
-      <label>Computer:</label><input type="number" name="computer" required>
-      <label>English:</label><input type="number" name="english" required>
-      <button type="submit">Save</button>
-    </form>
+{% extends 'students/base.html' %}
+{% block title %}Add Student{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-600 text-center mb-6">Add Student Record</h2>
+
+<form method="POST" class="bg-white p-6 shadow-lg rounded-lg max-w-3xl mx-auto">
+  {% csrf_token %}
+  <div class="grid grid-cols-2 gap-4">
+    <input type="number" name="admission_number" placeholder="Admission No" class="border p-2 rounded" required>
+    <input type="text" name="name" placeholder="Name" class="border p-2 rounded" required>
+    <input type="number" name="roll_number" placeholder="Roll No" class="border p-2 rounded" required>
+    <input type="number" name="student_class" placeholder="Class" class="border p-2 rounded" required>
+    <input type="text" name="section" placeholder="Section" class="border p-2 rounded" required>
+    <input type="number" name="physics" placeholder="Physics" class="border p-2 rounded" required>
+    <input type="number" name="chemistry" placeholder="Chemistry" class="border p-2 rounded" required>
+    <input type="number" name="maths" placeholder="Maths" class="border p-2 rounded" required>
+    <input type="number" name="computer" placeholder="Computer" class="border p-2 rounded" required>
+    <input type="number" name="english" placeholder="English" class="border p-2 rounded" required>
   </div>
-</body>
-</html>
+  <button class="bg-blue-600 text-white w-full py-2 rounded mt-4 hover:bg-blue-700">Save Student</button>
+</form>
+{% endblock %}

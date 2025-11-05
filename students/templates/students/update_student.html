@@ -1,0 +1,21 @@
+{% extends 'students/base.html' %}
+{% block title %}Update Student{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-600 text-center mb-6">Update Student Record</h2>
+
+<form method="POST" class="bg-white p-6 shadow-md rounded max-w-3xl mx-auto">
+  {% csrf_token %}
+  <div class="grid grid-cols-2 gap-4">
+    <input type="text" name="name" value="{{ student.name }}" class="border p-2 rounded">
+    <input type="number" name="roll_number" value="{{ student.roll_number }}" class="border p-2 rounded">
+    <input type="number" name="student_class" value="{{ student.student_class }}" class="border p-2 rounded">
+    <input type="text" name="section" value="{{ student.section }}" class="border p-2 rounded">
+    <input type="number" name="physics" value="{{ student.physics }}" class="border p-2 rounded">
+    <input type="number" name="chemistry" value="{{ student.chemistry }}" class="border p-2 rounded">
+    <input type="number" name="maths" value="{{ student.maths }}" class="border p-2 rounded">
+    <input type="number" name="computer" value="{{ student.computer }}" class="border p-2 rounded">
+    <input type="number" name="english" value="{{ student.english }}" class="border p-2 rounded">
+  </div>
+  <button class="bg-green-600 text-white w-full py-2 rounded mt-4 hover:bg-green-700">Update Record</button>
+</form>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'students/base.html' %}
+{% block title %}All Students{% endblock %}
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-600 text-center mb-5">All Student Records</h2>
+
+<div class="overflow-x-auto">
+  <table class="table-auto w-full bg-white shadow-md rounded-lg">
+    <thead class="bg-blue-100 text-blue-700">
+      <tr>
+        <th class="p-2">Adm No</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Total</th>
+        <th>Percentage</th>
+        <th>Grade</th>
+        <th>Result</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      {% for s in students %}
+      <tr class="border-b">
+        <td>{{ s.admission_number }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.student_class }}</td>
+        <td>{{ s.section }}</td>
+        <td>{{ s.total }}</td>
+        <td>{{ s.percentage|floatformat:2 }}%</td>
+        <td>{{ s.grade }}</td>
+        <td class="{% if s.result == 'Fail' %}text-red-600{% else %}text-green-600{% endif %}">{{ s.result }}</td>
+        <td>
+          <a href="{% url 'update_student' s.admission_number %}" class="text-blue-600 hover:underline mx-1">Edit</a> |
+          <a href="{% url 'delete_student' s.admission_number %}" class="text-red-600 hover:underline mx-1">Delete</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="9" class="p-4 text-gray-500">No records found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

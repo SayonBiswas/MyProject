@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +25,7 @@ SECRET_KEY = 'django-insecure-fh6a=c6t7#40_rx4c*7qf6by^hcm_=mtegoe@^7bfo@a3g_2+8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -76,12 +74,15 @@ WSGI_APPLICATION = 'MyProject.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Project',     # ✅ your MySQL database name
+        'USER': 'root',        # your MySQL username
+        'PASSWORD': '1234',    # your MySQL password
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
 }
-
 
 
 
@@ -126,7 +127,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "students" / "static"]
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'

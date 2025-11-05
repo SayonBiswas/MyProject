@@ -1,54 +1,83 @@
+/* ---------- General Typography ---------- */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f7ff;
-  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-header {
-  background: #004aad;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+/* ---------- Navbar Enhancements ---------- */
+nav a {
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  text-decoration: underline;
 }
 
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 2rem auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-button {
-  background: #004aad;
-  color: white;
-  border: none;
+/* ---------- Table Styling ---------- */
+table th,
+table td {
   padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
+  text-align: center;
+}
+table thead tr {
+  background-color: #e0f2fe; /* Light blue */
+  color: #1e3a8a; /* Navy */
+  font-weight: 600;
+}
+table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+table tbody tr:hover {
+  background-color: #eff6ff;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  transition: all 0.3s ease;
 }
 button:hover {
-  background: #00337f;
+  transform: translateY(-2px);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+/* ---------- Form Inputs ---------- */
+input {
+  transition: box-shadow 0.2s ease;
 }
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2563eb; /* Tailwind blue-600 */
 }
-th {
-  background: #004aad;
-  color: white;
+
+/* ---------- Cards and Forms ---------- */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- Alert Boxes ---------- */
+.alert-success {
+  background-color: #dcfce7;
+  border: 1px solid #22c55e;
+  color: #166534;
+  padding: 1rem;
+  border-radius: 6px;
+}
+.alert-error {
+  background-color: #fee2e2;
+  border: 1px solid #ef4444;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 6px;
 }

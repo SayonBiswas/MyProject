@@ -1,16 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Report Card Home</title>
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-  <header>Report Card Management System</header>
-  <div class="container">
-    <h2>Welcome!</h2>
-    <a href="{% url 'add_student' %}"><button>Add Student</button></a>
-    <a href="{% url 'view_all' %}"><button>View All Students</button></a>
+{% extends 'students/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="text-center py-10">
+  <h1 class="text-3xl font-bold text-blue-600 mb-3">Welcome to Report Card Management System</h1>
+  <p class="text-gray-600 mb-6">Manage, add, search, and view student results easily.</p>
+  <div class="space-x-3">
+    <a href="{% url 'add_student' %}" class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">Add Student</a>
+    <a href="{% url 'view_students' %}" class="border border-blue-600 text-blue-600 px-5 py-2 rounded hover:bg-blue-50">View All</a>
   </div>
-</body>
-</html>
+</div>
+{% endblock %}
